@@ -3713,11 +3713,11 @@ LIBNAME='$(LIBPREF)$(FULLNAME)$(LIBSUF)'
 SLIBPREF="lib"
 SLIBSUF=".so"
 SLIBNAME='$(SLIBPREF)$(FULLNAME)$(SLIBSUF)'
-SLIBNAME_WITH_VERSION='$(SLIBNAME).$(LIBVERSION)'
-SLIBNAME_WITH_MAJOR='$(SLIBNAME).$(LIBMAJOR)'
+SLIBNAME_WITH_VERSION='$(SLIBNAME)'
+SLIBNAME_WITH_MAJOR='$(SLIBNAME)'
 LIB_INSTALL_EXTRA_CMD='$$(RANLIB) "$(LIBDIR)/$(LIBNAME)"'
-SLIB_INSTALL_NAME='$(SLIBNAME_WITH_VERSION)'
-SLIB_INSTALL_LINKS='$(SLIBNAME_WITH_MAJOR) $(SLIBNAME)'
+SLIB_INSTALL_NAME='$(SLIBNAME)'
+SLIB_INSTALL_LINKS=''
 VERSION_SCRIPT_POSTPROCESS_CMD="cat"
 
 asflags_filter=echo
@@ -4234,10 +4234,10 @@ fi
 
 if enabled cuda_nvcc; then
     nvcc_default="nvcc"
-    nvccflags_default="-gencode arch=compute_30,code=sm_30 -O2"
+    nvccflags_default="-gencode arch=compute_50,code=sm_50 -O2"
 else
     nvcc_default="clang"
-    nvccflags_default="--cuda-gpu-arch=sm_30 -O2"
+    nvccflags_default="--cuda-gpu-arch=sm_50 -O2"
     NVCC_C=""
 fi
 
