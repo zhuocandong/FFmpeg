@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="asm">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\common\vec\intrinsic_idct_avx2.c">
+      <Filter>vec</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <NASM Include="..\..\source\common\x86\const-a.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\cpu-a.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\dct8.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\pixel-a.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\sad-a.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\ssd-a.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\mc-a.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\pixeladd8.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\mc-a2.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\blockcopy8.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\pixel-util8.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\pixel-32.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\quant8.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\x86inc.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\x86util.asm">
+      <Filter>asm</Filter>
+    </NASM>
+    <NASM Include="..\..\source\common\x86\satd-a.asm">
+      <Filter>asm</Filter>
+    </NASM>
+  </ItemGroup>
+</Project>
