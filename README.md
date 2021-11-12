@@ -1,46 +1,47 @@
 FFmpeg README
 =============
 
-FFmpeg is a collection of libraries and tools to process multimedia content
-such as audio, video, subtitles and related metadata.
+FFmpeg是一个处理多媒体内容的库和工具的集合，如音频、视频、字幕和相关元数据。
+此项目在FFmpeg源码的基础上，根据需求做了定制化修改。
 
-## Libraries
+## 功能
 
-* `libavcodec` provides implementation of a wider range of codecs.
-* `libavformat` implements streaming protocols, container formats and basic I/O access.
-* `libavutil` includes hashers, decompressors and miscellaneous utility functions.
-* `libavfilter` provides a mean to alter decoded Audio and Video through chain of filters.
-* `libavdevice` provides an abstraction to access capture and playback devices.
-* `libswresample` implements audio mixing and resampling routines.
-* `libswscale` implements color conversion and scaling routines.
+1. H264软编码 - x264
+2. H264硬编解码 - h264_nvenc / h264_cuvid
+3. H265软编码 - x265
+4. H265硬编解码 - hevc_nvenc / hevc_cuvid
+5. XAVC Intra Class 300编码
+6. AVS软编码 - xavs
+7. AVS2软编解码 - xavs2 / davs2
 
-## Tools
+## 说明
 
-* [ffmpeg](https://ffmpeg.org/ffmpeg.html) is a command line toolbox to
-  manipulate, convert and stream multimedia content.
-* [ffplay](https://ffmpeg.org/ffplay.html) is a minimalistic multimedia player.
-* [ffprobe](https://ffmpeg.org/ffprobe.html) is a simple analysis tool to inspect
-  multimedia content.
-* Additional small tools such as `aviocat`, `ismindex` and `qt-faststart`.
+1. 以上库以静态库的形式链接到FFmpeg
+2. 去掉了libpostproc的编译
+3. 使用的FFmpeg版本为**release/4.2**
 
-## Documentation
+## 编译步骤(仅支持Linux)
 
-The offline documentation is available in the **doc/** directory.
+可选择本地编译或者使用docker容器编译
 
-The online documentation is available in the main [website](https://ffmpeg.org)
-and in the [wiki](https://trac.ffmpeg.org).
+### dokcer镜像（可选）
 
-### Examples
+由于需要支持硬件编解码功能，编译环境需要安装cuda，推荐使用**nvidia/cuda**的镜像进行编译。
 
-Coding examples are available in the **doc/examples** directory.
+```bash
+# 启动容器，挂载路径
+docker run -it -v ~/FFmpeg/:/FFmpeg nvidia/cuda:11.1-cudnn8-devel-ubuntu18.04 /bin/bash
+```
 
-## License
+### 安装相关软件
 
-FFmpeg codebase is mainly LGPL-licensed with optional components licensed under
-GPL. Please refer to the LICENSE file for detailed information.
+```bash
+sudo apt update
+sudo apt install -y pkg-config build-essential cmake nasm yasm
+```
 
-## Contributing
-
-Patches should be submitted to the ffmpeg-devel mailing list using
-`git format-patch` or `git send-email`. Github pull requests should be
-avoided because they are not part of our review process and will be ignored.
+### 执行脚本编译安装
+```bash
+cd FFmpeg
+./build_linux.sh
+```
